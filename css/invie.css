@@ -60,6 +60,7 @@ input:focus , textarea:focus{
   background-image: url('../images/background.png');
   background-attachment: fixed;
   background-size: cover;
+  background-color: #466173;
 }
 .button{
   border-radius: 10px;
@@ -435,7 +436,7 @@ input:focus , textarea:focus{
   }
 }
 
-@media screen and (min-device-pixel-ratio:2) {
+@media screen and (-webkit-min-device-pixel-ratio:2) {
   .background{
     background-image: url('../images/background2x.png');
   }
