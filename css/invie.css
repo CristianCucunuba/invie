@@ -272,7 +272,10 @@ input:focus , textarea:focus{
   /*estilos de portada*/
   .titulo{
     font-size: 60px;
-    margin-top: 40px;
+    margin-top: 10px;
+  }
+  .menu ul{
+    margin-top: 15px;
   }
   .contenedor{
     max-width: 600px;
@@ -281,7 +284,8 @@ input:focus , textarea:focus{
     text-align: center;
   }
   .portada{
-    height: 45vh;
+    height: 90vh;
+    padding: 0;
   }
   /* fin estilos de portada*/
 
@@ -374,6 +378,7 @@ input:focus , textarea:focus{
   }
   .portada .contenedor{
     position: static;
+    padding: 20px;
   }
   .menu{
     background: rgba(255, 60, 88, 0.85);
