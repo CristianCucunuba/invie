@@ -3,10 +3,11 @@
   <head>
     <title>Precios - de tus mejores guitarras!!!</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
     <link rel="stylesheet" href="css/invie.css">
     <link href="https://fonts.googleapis.com/css?family=Anton|Lobster" rel="stylesheet">
   </head>
-  <body>
+  <body class="precios">
     <header id="header" class="header background"> <!-- header -->
       <div class="contenedor">
         <figure class="logotipo">
@@ -14,27 +15,31 @@
             <img src="images/invie.png" width="186px" height="60px" alt="Invie Logotipo"/>
           </a>
         </figure>
-        <nav class="menu">
+
+        <nav class="menu" id="menu">
           <ul>
             <li>
-              <a href="./index.html">Home</a>
+              <a href="./index.html" id="home">Home</a>
             </li>
             <li>
-              <a href="./index.html#guitarras">Guitarras</a>
+              <a href="./index.html#guitarras-section" id="guitarras">Guitarras</a>
             </li>
             <li>
-              <a href="./precios.html">Precios</a>
+              <a href="./precios.html" id="precios">Precios</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-
+    <span class="icon-menu burguer-menu" id="burguer-button"></span>
     <section class="tabla">
       <div class="contenedor">
         <table>
           <thead>
             <tr>
+              <th>Modelo</th>
+              <th>Precio</th>
+              <th>Descripción</th>
               <th>Modelo</th>
               <th>Precio</th>
               <th>Descripción</th>
@@ -45,13 +50,22 @@
               <td>Invie Classic</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
-            </tr>
-            <tr>
               <td>Invie Classic</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
             </tr>
             <tr>
+              <td>Invie Classic</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
+              <td>Invie Classic</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
+            </tr>
+            <tr>
+              <td>Invie Classic</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
               <td>Invie Classic</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
@@ -59,31 +73,19 @@
           </tbody>
         </table>
       </div>
-
     </section>
-
-
-
-
-
-
-
-
-
-
-
     <footer class="footer">
-      <div class="contenedor">
+      <div class="contenedor-footer">
         <div class="contacto">
-          <img src="./images/invie-white.png" alt="Logotipo invie">
+          <img  class="logo-footer" data-src="./images/invie-white.png | ./images/invie-white2x.png" alt="Logotipo invie">
           <a href="tel:+573186889734"><strong>Telefono</strong><span>3185660455</span></a>
           <a href="mailto:contacto@invie.com"><strong>E-mail:</strong><span>info@invie.com</span></a>
         </div>
         <form class="formulario">
           <div class="col1">
-            <label for="nombre">Nombre</label>
+            <label class="labels-contact" for="nombre">Nombre</label>
             <input type="text"  id="nombre" required/ name="nombre">
-            <label for="email">E-mail</label>
+            <label class="labels-contact" for="email">E-mail</label>
             <input type="email"  id="email" required name="email">
             <div class="sexo">
               <label for="mujer">
@@ -116,5 +118,48 @@
         </form>
       </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script>
+      let $burguerButton = document.getElementById('burguer-button');
+      let $menu = document.getElementById('menu');
+      let $home = document.getElementById('home');
+      let $guitarras = document.getElementById('guitarras');
+      let $precios = document.getElementById('precios');
+      let $body = document.body;
+
+      $burguerButton.addEventListener('click' , mostrarMenu);
+      $home.addEventListener('click' , mostrarMenu);
+      $guitarras.addEventListener('click' , mostrarMenu);
+      $precios.addEventListener('click' , mostrarMenu);
+
+      function mostrarMenu() {
+        $menu.classList.toggle('active');
+        $burguerButton.classList.toggle('icon-close');
+        $body.classList.toggle('body-scroll');
+      };
+      // Gestos touch con HammerJs
+      let gestures = new Hammer($body);
+
+      gestures.on('swiperight', () => {
+        $menu.classList.add('active');
+        $burguerButton.classList.add('icon-close');
+        $body.classList.add('body-scroll');
+      });
+      gestures.on('swipeleft', () => {
+        $menu.classList.remove('active');
+        $burguerButton.classList.remove('icon-close');
+        $body.classList.remove('body-scroll');
+      });
+      //lazy loading
+      var bLazy = new Blazy({
+        selector : 'img'
+      });
+
+    </script>
+
+
+
   </body>
 </html>

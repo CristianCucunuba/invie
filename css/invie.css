@@ -1,3 +1,36 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?ig9izm');
+  src:  url('../fonts/icomoon.eot?ig9izm#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?ig9izm') format('truetype'),
+    url('../fonts/icomoon.woff?ig9izm') format('woff'),
+    url('../fonts/icomoon.svg?ig9izm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-close:before {
+  content: "\ea0d";
+}
+
 body{
   font-family: 'Anton' , sans-serif;
   margin: 0;
@@ -55,7 +88,6 @@ input:focus , textarea:focus{
 }
 .title-a{
   font-size: 24px;
-  margin-top: 0;
   padding-left: 40px;
 }
 .title-b{
@@ -74,7 +106,6 @@ input:focus , textarea:focus{
   float: right;
   position: relative;
   top: -145px;
-
 }
 .left{
   float: left;
@@ -103,6 +134,7 @@ input:focus , textarea:focus{
   display: inline-block;
   position: absolute;
   right: 0;
+  top: 13px;
 }
 .menu li{
   display: inline-block;
@@ -146,6 +178,7 @@ input:focus , textarea:focus{
 .contacto{
   display: flex;
   width: 250px;
+  margin-right: 90px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -168,7 +201,7 @@ input:focus , textarea:focus{
 }
 .formulario{
   display: flex;
-  width: 400px;
+  width: 90%;
   color: white;
 }
 .col1 , .col2{
@@ -183,20 +216,62 @@ input:focus , textarea:focus{
 .formulario label , .sexo , .intereses{
   margin-bottom: 15px;
 }
+.labels-contact , .col2 label{
+  display: block;
+}
 .sexo{
   margin-top: 10px;
 }
 .tabla{
   margin: 50px 0 ;
 }
-
-
+.burguer-menu{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: none;
+}
+.video-responsive-contenedor{
+  position: relative;
+  padding-top: 56.25%;
+}
+.video-responsive-src{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.video-demo{
+  max-width: 500px;
+  width: 100%;
+  border: 5px solid #3C5B6E;
+}
+.video-demo-contenedor{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+.body-scroll{
+  overflow: hidden;
+}
 @media screen and (max-width: 800px) {
 
   /*estilos de portada*/
   .titulo{
     font-size: 60px;
-    margin-top: 35px;
+    margin-top: 40px;
   }
   .contenedor{
     max-width: 600px;
@@ -222,6 +297,9 @@ input:focus , textarea:focus{
     position: static;
     margin: 0;
   }
+  .video-demo-contenedor{
+    margin-bottom: 30px;
+  }
   .title-b{
     margin: 0px;
   }
@@ -233,13 +311,130 @@ input:focus , textarea:focus{
 
   /* estilos de footer */
   .contenedor-footer{
+    max-width: inherit;
     display: flex;
     justify-content: center;
   }
-
-
-
   /* estilos de footer */
+}
+@media screen and (max-width : 767px) {
+  .contenedor-footer{
+    display: block;
+  }
+  .contacto , .formulario{
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width : 650px) {
+  .portada{
+    height: auto;
+  }
+  .contenedor-eslogan .button{
+    display: inline-block;
+    margin-bottom: 80px;
+  }
+  .header{
+    text-align: center;
+  }
+  .logotipo{
+    margin: 0;
+  }
+  .menu{
+    position: static;
+    display: block;
+  }
+  .menu ul{
+    padding: 23px;
+    margin: 0;
+  }
+  .menu li:first-child{
+    margin: 0;
+  }
+  .logo-footer{
+    width: 70%;
+  }
+  .video-demo-contenedor{
+    margin: 0 10px 30px 10px;
+  }
+  .contenedor-footer{
+    justify-content: flex-start;
+  }
+  .tabla .contenedor{
+    overflow: auto;
+    width: 400px;
+  }
+}
+@media screen and (max-width : 500px) {
+  .precios .header .logotipo{
+    padding: 10px;
+  }
+  .burguer-menu{
+    display: block;
+  }
+  .portada .contenedor{
+    position: static;
+  }
+  .menu{
+    background: rgba(255, 60, 88, 0.85);
+    position: fixed;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+  }
+  .menu.active{
+    left: 0;
+  }
+  .menu ul{
+    flex: 1;
+  }
+  .menu li{
+    display: block;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid white;
+  }
+  .menu li:first-child{
+    border-top: .5px white solid;
+  }
+  .precios-icono::before , .guitarra-icono::before{
+    display: none;
+  }
+  .menu ul{
+    padding: 0;
+  }
+  .title-a{
+    font-size: 18px;
+  }
+  .left , .right{
+    width: 200px;
+  }
+  .title-b{
+    font-size: 30px;
+  }
+  .contacto{
+    margin-top: 20px;
+  }
+  .contenedor-footer{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .formulario{
+    display: block;
+    padding-left: 10px;
+    margin: 0;
+  }
+  .col2 textarea{
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 
+@media screen and (min-device-pixel-ratio:2) {
 
 }
