@@ -436,5 +436,7 @@ input:focus , textarea:focus{
 }
 
 @media screen and (min-device-pixel-ratio:2) {
-
+  .background{
+    background-image: url('../images/background2x.png');
+  }
 }
